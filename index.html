@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Welcome to Store Path!</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="js/classie.js"></script>
+
+
+  <!-- Font Awesome
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <form>
+            <input type="text" placeholder="Add a new item">
+          </form>
+        </div><!--twelve-->
+      </div><!--row-->
+    </div><!--container-->
+  </header>
+
+  <section class="shopping-table">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <table id="itemTable" class="tablesorter">
+            <thead>
+              <tr>
+                <th>
+                  Item
+                </th>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Location
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>
+                  <span class="item-name">Dill Pickle Chips</a>
+                </td>
+                <td>
+                  <span class="hidden">Condiments</span>
+                  <input type="text" value="Condiments">
+                </td>
+                <td>
+                  <span>Aisle 5</span>
+                  <i class="fa fa-times"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="item-name">Oreos</span>
+                </td>
+                <td>
+                  <span class="hidden">Cookies</span>
+                  <input type="text" value="Cookies">
+                </td>
+                <td>
+                  <span>Aisle 8</span>
+                  <i class="fa fa-times"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="item-name">Febreeze Glad Garbage Bags</span>
+                </td>
+                <td>
+                  <span class="hidden">Garbage Bags</span>
+                  <input type="text" value="Garbage Bags">
+                </td>
+                <td>
+                  <span>Aisle 20B</span>
+                  <i class="fa fa-times"></i>
+                </td>
+              </tr>
+
+               <tr>
+                <td>
+                  <span class="item-name">Paper Plates</span>
+                </td>
+                <td>
+                  <span class="hidden">Paper Goods</span>
+                  <input type="text" value="Paper Goods">
+                </td>
+                <td>
+                  <span>Aisle 21B</span>
+                  <i class="fa fa-times"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="item-name">Kettle Corn</span>
+                </td>
+                <td>
+                  <span class="hidden">Popcorn</span>
+                  <input type="text" value="Popcorn">
+                </td>
+                <td>
+                  <span>Aisle 8</span>
+                  <i class="fa fa-times"></i>
+                </td>
+              </tr>
+
+               <tr>
+                <td>
+                  <span class="item-name">Hammer</span>
+                </td>
+                <td>
+                  <span class="hidden">Tools</span>
+                  <input type="text" value="Tools">
+                </td>
+                <td>
+                  <span>Aisle 19B</span>
+                  <i class="fa fa-times"></i>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div><!--twelve-->
+      </div><!--row-->
+    </div><!--container-->
+  </section>
+
+  <footer>
+    &copy; Copyright 2016 Store Path
+  </footer>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script>
+$(document).ready(function() 
+    { 
+        $("#itemTable").tablesorter(); 
+    } 
+); 
+</script>
+
+    
+    <script>
+$(".item-name").click(function() { 
+   // instead of addClass() just use toggleClass()
+   $(this).toggleClass('strike'); 
+});
+    </script>
+
+</body>
+</html>
