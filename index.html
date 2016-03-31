@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="storePathApp">
 <head>
 
   <!-- Basic Page Needs
@@ -15,7 +15,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -25,10 +25,8 @@
 
   <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
-  <script type="text/javascript" src="js/classie.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="js/app.js"></script>
 
   <!-- Font Awesome
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -39,7 +37,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
-<body>
+<body ng-controller="MainCtrl">
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -48,8 +46,8 @@
     <div class="container">
       <div class="row">
         <div class="twelve columns">
-          <form>
-            <input type="text" placeholder="Add a new item">
+          <form ng-submit="addItem($event, item)">
+            <input ng-model="item.name" type="text" placeholder="Add a new item">
           </form>
         </div><!--twelve-->
       </div><!--row-->
@@ -60,7 +58,8 @@
     <div class="container">
       <div class="row">
         <div class="twelve columns">
-          <table id="itemTable" class="tablesorter">
+          <p ng-if="items.length === 0">No items yet</p>
+          <table ng-if="items.length > 0" id="itemTable" class="tablesorter">
             <thead>
               <tr>
                 <th>
@@ -75,8 +74,7 @@
               </tr>
             </thead>
             <tbody>
-
-              <tr>
+              <tr ng-repeat="item in items">
                 <td>
                   <span class="item-name">Dill Pickle Chips</a>
                 </td>
@@ -86,80 +84,9 @@
                 </td>
                 <td>
                   <span>Aisle 5</span>
-                  <i class="fa fa-times"></i>
+                  <i class="fa fa-times" ng-click="removeItem($event, $index)"></i>
                 </td>
               </tr>
-
-              <tr>
-                <td>
-                  <span class="item-name">Oreos</span>
-                </td>
-                <td>
-                  <span class="hidden">Cookies</span>
-                  <input type="text" value="Cookies">
-                </td>
-                <td>
-                  <span>Aisle 8</span>
-                  <i class="fa fa-times"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <span class="item-name">Febreeze Glad Garbage Bags</span>
-                </td>
-                <td>
-                  <span class="hidden">Garbage Bags</span>
-                  <input type="text" value="Garbage Bags">
-                </td>
-                <td>
-                  <span>Aisle 20B</span>
-                  <i class="fa fa-times"></i>
-                </td>
-              </tr>
-
-               <tr>
-                <td>
-                  <span class="item-name">Paper Plates</span>
-                </td>
-                <td>
-                  <span class="hidden">Paper Goods</span>
-                  <input type="text" value="Paper Goods">
-                </td>
-                <td>
-                  <span>Aisle 21B</span>
-                  <i class="fa fa-times"></i>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <span class="item-name">Kettle Corn</span>
-                </td>
-                <td>
-                  <span class="hidden">Popcorn</span>
-                  <input type="text" value="Popcorn">
-                </td>
-                <td>
-                  <span>Aisle 8</span>
-                  <i class="fa fa-times"></i>
-                </td>
-              </tr>
-
-               <tr>
-                <td>
-                  <span class="item-name">Hammer</span>
-                </td>
-                <td>
-                  <span class="hidden">Tools</span>
-                  <input type="text" value="Tools">
-                </td>
-                <td>
-                  <span>Aisle 19B</span>
-                  <i class="fa fa-times"></i>
-                </td>
-              </tr>
-
             </tbody>
           </table>
         </div><!--twelve-->
@@ -170,24 +97,6 @@
   <footer>
     &copy; Copyright 2016 Store Path
   </footer>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<script>
-$(document).ready(function() 
-    { 
-        $("#itemTable").tablesorter(); 
-    } 
-); 
-</script>
-
-    
-    <script>
-$(".item-name").click(function() { 
-   // instead of addClass() just use toggleClass()
-   $(this).toggleClass('strike'); 
-});
-    </script>
 
 </body>
 </html>
