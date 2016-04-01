@@ -76,7 +76,7 @@
             <tbody>
               <tr ng-repeat="item in items">
                 <td>
-                  <span class="item-name">Dill Pickle Chips</a>
+                  <span class="item-name">{{ item.name }}</a>
                 </td>
                 <td>
                   <span class="hidden">Condiments</span>
@@ -95,7 +95,7 @@
   </section>
 
   <footer>
-    &copy; Copyright 2016 Store Path
+    &copy; Copyright {{ today | date:'yyyy' }} Store Path
   </footer>
 
 </body>
